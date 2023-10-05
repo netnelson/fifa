@@ -1,0 +1,15 @@
+// usar esse codigo para a pagina inicial, com o 
+objetivo de mostrar o trailer do fifa 23
+<script>
+     Video({ video }) {
+        return (
+          <div>
+            <Thumbnail video={video} />
+            <a href={video.url}>
+              <h3>{video.title}</h3>
+              <p>{video.description}</p>
+            </a>
+            <LikeButton video={video} />
+          </div>
+        );
+      }</script>

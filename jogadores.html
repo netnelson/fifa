@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIFA2023-jogadores</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <style>
+        .center-image {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+    <style>
+        body {
+            padding: 0%;
+            margin: 0%;
+            background-color: rgb(116, 116, 116);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="cabecalho-pai">
+        <div class="cabecalho-branco">
+            <button class="botao-conta">Conta</button>
+            <img class="logo" src="imagens/fifa-logo.png" class="center-image">
+        </div>
+        <div class="cabecalho-preto">
+            <center>
+                <a class="link-cabecalho" href="inicial.html">
+                    <h3>Inicio</h3>
+                </a>
+                <div class="dropdown">
+                    <a class="link-cabecalho">
+                        <h3>Times</h3>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="times.html">Brasil</a>
+                        <a href="times.html">Outros</a>
+                    </div>
+                </div>
+                <a class="link-cabecalho" href="jogadores.html">
+                    <h3>Jogadores</h3>
+                </a>
+                <a class="link-cabecalho" href="configuracoes.html">
+                    <h3>configurações</h3>
+                </a>
+            </center>
+        </div>
+    </div>
+
+    <div class="container-pai">
+        <div class="container-biblioteca">
+            <center><h4>Biblioteca</h4></center>
+            <div class="escuro2">
+                <center>
+                    <hr class="linha-espaco">
+                    <h5 id="biblioteca-frase">você ainda não tem nenhum ):</h5>
+                    <img id="imagem-biblioteca" style="max-width: 50%; max-height: 50%;">
+                </center>
+            </div>
+        </div>
+        <div class="container-obter">
+            <center><h4>Jogadores</h4></center>
+            <div class="escuro">
+                <center>
+                    <table class="tabela-cards">
+                        <tr>
+                            <td>
+                                <img src="imagens/1.png" id="imagem1" class="jogador-card">
+                            </td>
+                            <td>
+                                <img src="imagens/2.png" id="imagem2" class="jogador-card">
+                            </td>
+                            <td>
+                                <img src="imagens/3.png" id="imagem3" class="jogador-card">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="imagens/4.png" id="imagem4" class="jogador-card">
+                            </td>
+                            <td>
+                                <img src="imagens/5.png" id="imagem5" class="jogador-card">
+                            </td>
+                            <td>
+                                <img src="imagens/6.png" id="imagem6" class="jogador-card">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="imagens/7.png" id="imagem7" class="jogador-card">
+                            </td>
+                            <td>
+                                <img src="imagens/8.png" id="imagem8" class="jogador-card">
+                            </td>
+                            <td>
+                                <img src="imagens/9.png" id="imagem9" class="jogador-card">
+                            </td>
+                        </tr>
+                        <!-- Mais linhas de imagens aqui -->
+                    </table>
+                </center>
+            </div>
+        </div>
+
+        <div class="container-selecionado">
+            <center><h4>Jogador Selecionado</h4></center>
+            <div class="escuro3">
+                <center>
+                    <img id="imagem-selecionada" style="max-width: 90%; max-height: 90%;">
+                    <button class="botao-comprar" id="botao-obter-selecionado" style="margin-top: 20px;">Obter</button>
+                </center>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const imagens = document.querySelectorAll('.jogador-card');
+        const imagemSelecionada = document.getElementById('imagem-selecionada');
+        const botaoObterSelecionado = document.getElementById('botao-obter-selecionado');
+        const bibliotecaFrase = document.getElementById('biblioteca-frase');
+        const imagemBiblioteca = document.getElementById('imagem-biblioteca');
+
+        botaoObterSelecionado.addEventListener('click', () => {
+            if (imagemSelecionada.src) {
+                const cloneImagem = imagemSelecionada.cloneNode();
+                cloneImagem.style.maxWidth = '50%'; // Defina o tamanho desejado
+
+                // Adicione a imagem clonada à tabela na biblioteca
+                const tabelaBiblioteca = document.querySelector('.container-biblioteca .tabela-cards');
+                const novaLinha = tabelaBiblioteca.insertRow(-1);
+                const novaCelula = novaLinha.insertCell(0);
+                novaCelula.appendChild(cloneImagem);
+
+                // Esconda a frase na biblioteca
+                bibliotecaFrase.style.display = 'none';
+
+                // Copie a imagem para o elemento de imagem na biblioteca
+                imagemBiblioteca.src = cloneImagem.src;
+            }
+        });
+
+        imagens.forEach((imagem, index) => {
+            imagem.addEventListener('click', () => {
+                const estaSelecionada = imagem.classList.contains('selecionada');
+
+                imagens.forEach((img) => {
+                    img.classList.remove('selecionada');
+                });
+
+                if (!estaSelecionada) {
+                    imagem.classList.add('selecionada');
+                    imagemSelecionada.src = imagem.src;
+                } else {
+                    imagem.classList.remove('selecionada');
+                    imagemSelecionada.src = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

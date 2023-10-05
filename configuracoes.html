@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIFA2023-configurações</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <style>
+        body {
+            padding: 0%;
+            margin: 0%;
+            background-color: rgb(116, 116, 116);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="cabecalho-pai">
+        <div class="cabecalho-branco">
+            <button class="botao-conta">Conta</button>
+            <img class="logo"src="imagens/fifa-logo.png">
+        </div>
+        <div class="cabecalho-preto">
+            <center>
+                <a class="link-cabecalho" href="inicial.html">
+                    <h3>Inicio</h3>
+                </a>
+                <div class="dropdown">
+                    <a class="link-cabecalho">
+                        <h3>Times</h3>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="times.html">Brasil</a>
+                        <a href="times.html">Outros</a>
+                    </div>
+                </div>
+                <a class="link-cabecalho" href="jogadores.html">
+                    <h3>Jogadores</h3>
+                </a>
+                <a class="link-cabecalho" href="configuracoes.html">
+                    <h3>configurações</h3>
+                </a>
+            </center>
+        </div>
+    </div>
+    <center>
+    <div class="container-config">
+    <main>
+        <section class="settings">
+            <form>
+                <table>
+                    <tr>
+                        <td><label for="sound">Volume do Som:</label></td></br>
+                        <td><input type="range" id="sound" name="sound" min="0" max="100"></td></br>
+                    </tr>
+                    <tr>
+                        <td><label for="graphics">Qualidade Gráfica:</label></td></br>
+                        <td>
+                            <select id="graphics" name="graphics">
+                                <option value="low">Baixa</option>
+                                <option value="medium">Média</option>
+                                <option value="high">Alta</option>
+                                <option value="ultra">Ultra</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="language">Idioma:</label></td>
+                        <td>
+                            <select id="language" name="language">
+                                <option value="en">Inglês</option>
+                                <option value="es">Espanhol</option>
+                                <option value="pt">Português</option>
+                                <option value="fr">Francês</option>
+                                <option value="de">Alemão</option>
+                                <option value="it">Italiano</option>
+                                <option value="ru">Russo</option>
+                                <!-- Adicione mais idiomas conforme necessário -->
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="notifications">Notificações:</label></td>
+                        <td><input type="checkbox" id="notifications" name="notifications"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="privacy">Política de Privacidade:</label></td>
+                        <td><a href="https://www.ea.com/pt-br/legal" target="_blank">Leia nossa política de privacidade</a></td>
+                    </tr>
+                    <tr>
+                        <td><label for="feedback">Envie seu Feedback:</label></td>
+                        <td><textarea id="feedback" name="feedback" rows="4" cols="50"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td><label for="resolution">Resolução de Tela:</label></td>
+                        <td>
+                            <input type="radio" id="resolution-low" name="resolution" value="low">
+                            <label for="resolution-low">Baixa</label>
+                            <input type="radio" id="resolution-medium" name="resolution" value="medium">
+                            <label for="resolution-medium">Média</label>
+                            <input type="radio" id="resolution-high" name="resolution" value="high">
+                            <label for="resolution-high">Alta</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="theme">Tema:</label></td>
+                        <td>
+                            <select id="theme" name="theme">
+                                <option value="light">Claro</option>
+                                <option value="dark">Escuro</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <button type="submit">Salvar Configurações</button>
+           
+            </form>
+        </section>
+    </main>
+    </div>
+    </center>
+</body>
+</html>
